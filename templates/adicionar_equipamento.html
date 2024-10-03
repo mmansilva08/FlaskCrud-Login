@@ -1,0 +1,28 @@
+{% extends "padrao.html" %}
+
+{% block conteudo %}
+<body>
+    <div class="container mt-5">
+        <h1>Adicionar Novo Equipamento</h1>
+        <form action="{{ url_for('add_equipamento') }}" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome do Equipamento</label>
+                <input type="text" class="form-control" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="tipo_recurso">Tipo de Recurso</label>
+                <select class="form-control" id="tipo_recurso" name="tipo_recurso" required>
+                    <option value="equipamento">Equipamento</option>
+                    <option value="veiculo">Veículo</option>
+                    <option value="dispositivo_seguranca">Dispositivo de Segurança</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea class="form-control" id="descricao" name="descricao" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+        </form>
+    </div>
+    {% endblock %}
+

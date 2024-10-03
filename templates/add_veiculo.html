@@ -1,0 +1,37 @@
+{% extends "padrao.html" %}
+
+{% block conteudo %}
+    <div class="container">
+        <h1>Adicionar Veículo</h1>
+        
+        <form action="{{ url_for('add_veiculo') }}" method="POST">
+            <div class="form-group">
+                <label for="nome_equipamento">Nome do Veículo</label>
+                <input type="text" class="form-control" id="nome_equipamento" name="nome_equipamento" placeholder="Nome do Veículo" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="modelo">Modelo</label>
+                <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="ano">Ano</label>
+                <input type="number" class="form-control" id="ano" name="ano" placeholder="Ano" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="placa">Placa</label>
+                <input type="text" class="form-control" id="placa" name="placa" placeholder="Placa" required>
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Adicionar Veículo</button>
+        </form>
+        
+    </div>
+    {% endblock %}

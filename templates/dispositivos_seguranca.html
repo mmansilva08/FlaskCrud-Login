@@ -1,0 +1,32 @@
+{% extends "padrao.html" %}
+
+{% block conteudo %}
+    <div class="container mt-5">
+        <h1>Dispositivos de Segurança</h1>
+        <a href="{{ url_for('add_dispositivo') }}" class="btn btn-success mb-3">Adicionar Dispositivo</a>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome do Dispositivo</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dispositivo in dispositivos %}
+                <tr>
+                    <td>{{ dispositivo.nome_equipamento }}</td>
+                    <td>{{ dispositivo.descricao }}</td>
+                    <td>
+                        <a href="{{ url_for('editar_dispositivo', id_equipamento=dispositivo.id_equipamento) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <form action="{{ url_for('deletar_dispositivo', id_equipamento=dispositivo.id_equipamento) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}

@@ -1,0 +1,38 @@
+{% extends "padrao.html" %}
+
+{% block conteudo %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post">
+                <fieldset>
+                    <legend>Editar Informações do Equipamento</legend>
+
+                    <div class="mb-3">
+                        <label for="nome">Nome do Equipamento: </label>
+                        <input type="text" name="nome" class="form-control" id="nome" value="{{ equipamento.nome_equipamento }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tipo_recurso">Tipo de Recurso: </label>
+                        <select name="tipo_recurso" class="form-control" id="tipo_recurso" required>
+                            <option value="equipamento" {% if equipamento.tipo_recurso == 'equipamento' %}selected{% endif %}>Inventário de Equipamentos</option>
+                            <option value="veiculo" {% if equipamento.tipo_recurso == 'veiculo' %}selected{% endif %}>Veículos</option>
+                            <option value="dispositivo_seguranca" {% if equipamento.tipo_recurso == 'dispositivo_seguranca' %}selected{% endif %}>Dispositivos de Segurança</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="descricao">Descrição: </label>
+                        <textarea name="descricao" class="form-control" id="descricao" rows="3" required>{{ equipamento.descricao }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-warning">Atualizar</button>
+                    </div>    
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

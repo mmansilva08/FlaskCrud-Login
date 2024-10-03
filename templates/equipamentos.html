@@ -1,0 +1,47 @@
+{% extends "padrao.html" %}
+
+{% block conteudo %}
+    <div class="container mt-5">
+        <h1>Inventário de Equipamentos</h1>
+        <a href="{{ url_for('cadastrar') }}" class="btn btn-success mb-3">Adicionar Equipamento</a>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if equipamentos %}
+                    {% for equipamento in equipamentos %}
+                    <tr>
+                        <td>{{ equipamento.id_equipamento }}</td>
+                        <td>{{ equipamento.nome_equipamento }}</td>
+                        <td>{{ equipamento.tipo_recurso }}</td>
+                        <td>{{ equipamento.descricao }}</td>
+                        <td>
+                            <a href="{{ url_for('editar_equipamento', id=equipamento.id_equipamento) }}" class="btn btn-warning btn-sm">Editar</a>
+                            <form action="{{ url_for('deletar_equipamento', id_equipamento=equipamento.id_equipamento) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+                            </form>
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5">Nenhum equipamento encontrado.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+            
+        </table>
+    </div>
+    {% endblock %}

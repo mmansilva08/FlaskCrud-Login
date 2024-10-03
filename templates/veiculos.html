@@ -1,0 +1,41 @@
+{% extends "padrao.html" %}
+
+{% block conteudo %}
+<div class="container mt-5">
+    <h1>Inventário de Veículos</h1>
+    <a href="{{ url_for('add_veiculo') }}" class="btn btn-success mb-3">Adicionar Veículo</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome do Veículo</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th>Placa</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for veiculo in veiculos %}
+            <tr>
+                <td>{{ veiculo.nome_equipamento or 'N/A' }}</td> 
+                <td>{{ veiculo.marca or 'N/A' }}</td>  
+                <td>{{ veiculo.modelo or 'N/A' }}</td>  
+                <td>{{ veiculo.ano or 'N/A' }}</td>  
+                <td>{{ veiculo.placa or 'N/A' }}</td> 
+            
+                
+                <td>
+                    <a href="{{ url_for('editar_veiculo', id_equipamento=veiculo.id_equipamento) }}" class="btn btn-warning btn-sm">Editar</a>
+                    <form action="{{ url_for('deletar_veiculo', id_equipamento=veiculo.id_equipamento) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+</div>
+{% endblock %}

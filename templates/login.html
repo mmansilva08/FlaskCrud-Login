@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+     body, html {
+            height: 100%;
+            margin: 0;
+            background-image: url('/static/Hannah.png');
+            background-size: cover; /* Cobre toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; 
+     }
+
+
+        .login-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-custom {
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+label {
+            color: #000000; /* Cor branca */
+            text-shadow: 1px 1px 2px black; /* Sombra preta */
+            font-weight: bold; /* Deixa o texto em negrito */
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <div class="container login-container">
+        <div class="col-md-4">
+            <form method="post" action="/autenticar">
+                <fieldset>
+
+                    <legend class="text-center" style="font-size: 2.5em; font-weight: bold; color: white;">Login</legend>
+
+
+
+                    <div class="mb-3">
+                        <label for="login">Email</label>
+                        <input type="text" name="login" class="form-control" id="login">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" class="form-control" id="senha">
+                    </div>
+                    <div class="mb-3 text-center">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <a href="/cadastrar-usuario" class="btn btn-outline-light btn-custom">Cadastre-se</a>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

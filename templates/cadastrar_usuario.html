@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+body, html {
+            height: 100%;
+            margin: 0;
+            background-image: url('/static/e.jpg');
+            background-size: cover; /* Cobre toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Evita a repetição da imagem */
+        }
+        label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+legend{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container vh-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-md-6">
+                <form action="/adicionar-usuario" method="post">
+                    <fieldset>
+                        <legend class="text-center">Digite suas informações</legend>
+    
+                        <div class="mb-3">
+                            <label for="nomeUsuario">Usuário</label>
+                            <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control">
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="emailUsuario">Email</label>
+                            <input type="text" name="emailUsuario" id="emailUsuario" class="form-control">
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="senhaUsuario">Senha</label>
+                            <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control">
+                        </div>
+    
+                        <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

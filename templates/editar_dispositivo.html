@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Dispositivo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Editar Dispositivo de Segurança</h1>
+        
+        <form action="{{ url_for('editar_dispositivo', id_equipamento=dispositivo.id_equipamento) }}" method="POST">
+            <div class="form-group">
+                <label for="nome_equipamento">Nome do Dispositivo</label>
+                <input type="text" class="form-control" id="nome_equipamento" name="nome_equipamento" 
+                       value="{{ dispositivo.nome_equipamento }}" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea class="form-control" id="descricao" name="descricao" required>{{ dispositivo.descricao }}</textarea>
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Atualizar Dispositivo</button>
+            <a href="{{ url_for('dispositivos_seguranca') }}" class="btn btn-secondary">Voltar</a>
+        </form>
+    </div>
+</body>
+</html>
